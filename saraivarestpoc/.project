@@ -1,0 +1,21 @@
+<projectDescription>
+  <name>SaraivaRestPOC</name>
+  <comment/>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+    <buildCommand>
+      <name>org.hibernate.eclipse.console.hibernateBuilder</name>
+    </buildCommand>
+    <buildCommand>
+      <name>org.mule.tooling.core.muleBuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.mule.tooling.core.muleNature</nature>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+    <nature>org.hibernate.eclipse.console.hibernateNature</nature>
+  </natures>
+</projectDescription>
