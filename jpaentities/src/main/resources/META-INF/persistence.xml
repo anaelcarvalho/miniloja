@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="jpaentities" transaction-type="RESOURCE_LOCAL">
+		<class>org.saraiva.model.Atributo</class>
+		<class>org.saraiva.model.Preco</class>
+		<class>org.saraiva.model.Categoria</class>
+		<class>org.saraiva.model.Produtoimg</class>
+		<class>org.saraiva.model.LojavitrinerelPK</class>
+		<class>org.saraiva.model.CategoriarelPK</class>
+		<class>org.saraiva.model.Produto</class>
+		<class>org.saraiva.model.ProdutocatrelPK</class>
+		<class>org.saraiva.model.CategoriatopoPK</class>
+		<class>org.saraiva.model.Estoque</class>
+		<class>org.saraiva.model.Cliente</class>
+		<class>org.saraiva.model.Loja</class>
+		<class>org.saraiva.model.ProdutoskurelPK</class>
+		<class>org.saraiva.model.Vitrine</class>
+		<class>org.saraiva.model.Atributovalor</class>
+		<class>org.saraiva.model.Cestaiten</class>
+		<class>org.saraiva.model.ProdutoatribvalrelPK</class>
+		<class>org.saraiva.model.Categoriarel</class>
+		<class>org.saraiva.model.Cesta</class>
+		<class>org.saraiva.model.Precolista</class>
+		<class>org.saraiva.model.Categoriatopo</class>
+		<class>org.saraiva.model.Produtocatrel</class>
+		<class>org.saraiva.model.Produtoatribvalrel</class>
+		<class>org.saraiva.model.Lojavitrinerel</class>
+		<class>org.saraiva.model.Produtoskurel</class>
+		<properties>
+			<property name="hibernate.connection.username" value="miniloja"/>
+			<property name="hibernate.connection.password" value="miniloja"/>
+			<property name="hibernate.connection.url" value="jdbc:postgresql:miniloja"/>
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
