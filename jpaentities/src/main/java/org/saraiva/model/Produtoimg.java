@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
 
 /**
  * The persistent class for the produtoimg database table.
@@ -46,6 +48,7 @@ public class Produtoimg implements Serializable {
 		this.url = url;
 	}
 
+	@XmlInverseReference(mappedBy="produtoimgs")
 	public Produto getProduto() {
 		return this.produto;
 	}
