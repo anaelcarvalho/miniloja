@@ -118,6 +118,7 @@ public class Produto implements Serializable {
 		this.tipo = tipo;
 	}
 
+	@XmlInverseReference(mappedBy="produto")
 	public List<Cestaiten> getCestaitens() {
 		return this.cestaitens;
 	}

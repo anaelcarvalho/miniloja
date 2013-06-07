@@ -61,6 +61,7 @@ public class Preco implements Serializable {
 		this.preco = preco;
 	}
 
+	@XmlInverseReference(mappedBy="preco")
 	public List<Cestaiten> getCestaitens() {
 		return this.cestaitens;
 	}

@@ -24,6 +24,9 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" doc:name="HTTP" path="servicos"/>
         <jersey:resources doc:name="REST">
         	<component class="org.saraiva.resources.ProdutoResource"/>
+            <component class="org.saraiva.resources.VitrineResource"/>
+            <component class="org.saraiva.resources.ClienteResource"/>
+            <component class="org.saraiva.resources.CategoriaResource"/>
         </jersey:resources>
     </flow>
 </mule>

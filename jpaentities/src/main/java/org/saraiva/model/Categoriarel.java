@@ -58,7 +58,8 @@ public class Categoriarel implements Serializable {
 		this.comentarios = comentarios;
 	}
 
-	@XmlElement(name="categoria")
+	@XmlElement(name="categoriapai")
+	@XmlInverseReference(mappedBy="categoriarels")
 	public Categoria getCategoria1() {
 		return this.categoria1;
 	}
@@ -67,6 +68,7 @@ public class Categoriarel implements Serializable {
 		this.categoria1 = categoria1;
 	}
 
+	@XmlElement(name="categoriafilha")
 	@XmlInverseReference(mappedBy="categoriarel")
 	public Categoria getCategoria2() {
 		return this.categoria2;

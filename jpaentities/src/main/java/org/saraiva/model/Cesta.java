@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
 import java.util.List;
 
 
@@ -92,6 +94,7 @@ public class Cesta implements Serializable {
 		this.totalitens = totalitens;
 	}
 
+	@XmlInverseReference(mappedBy="cestas")
 	public Cliente getCliente() {
 		return this.cliente;
 	}

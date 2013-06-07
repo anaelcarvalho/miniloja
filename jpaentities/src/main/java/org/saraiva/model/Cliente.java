@@ -1,10 +1,17 @@
 package org.saraiva.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 /**
@@ -89,6 +96,7 @@ public class Cliente implements Serializable {
 		this.rg = rg;
 	}
 
+	@XmlTransient
 	public String getSenha() {
 		return this.senha;
 	}

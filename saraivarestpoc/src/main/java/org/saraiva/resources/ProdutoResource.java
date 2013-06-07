@@ -18,6 +18,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 
+import org.saraiva.model.Estoque;
+import org.saraiva.model.Preco;
+import org.saraiva.model.Precolista;
 import org.saraiva.model.Produto;
 
 @Path("/produto")
@@ -111,6 +114,71 @@ public class ProdutoResource {
 			return Response.serverError().build();
 		}
 		return Response.ok().build();
+	}
+	
+	@GET @Path("/{prodId}/precos")
+	@Produces({"application/xml", "application/json"})
+	public Response readPrecos(@PathParam("prodId") int prodId) {
+		List<Preco> precos = null;
+		try {
+			Query q = entityManager.createQuery("Select p From Preco p where p.produto.prodId='"+prodId+"'");
+			precos = q.getResultList();
+		}
+		catch(Exception e) {
+			return Response.serverError().build();
+		}
+		if(precos == null || precos.size() == 0)
+			return Response.status(404).build();
+		return Response.ok(new GenericEntity<List<Preco>>(precos) {}).build();
+	}
+	
+	@GET @Path("/{prodId}/precos/{precoId}")
+	@Produces({"application/xml", "application/json"})
+	public Response readPrecos(@PathParam("prodId") int prodId, @PathParam("precoId") int precoId) {
+		List<Preco> precos = null;
+		try {
+			Query q = entityManager.createQuery("Select p From Preco p where p.produto.prodId='"+prodId+"' and p.precoId='"+precoId+"'");
+			precos = q.getResultList();
+		}
+		catch(Exception e) {
+			return Response.serverError().build();
+		}
+		if(precos == null || precos.size() == 0)
+			return Response.status(404).build();
+		return Response.ok(new GenericEntity<List<Preco>>(precos) {}).build();
+	}
+	
+	@GET @Path("/{prodId}/precos/listas/{listaId}")
+	@Produces({"application/xml", "application/json"})
+	public Response readPrecosListas(@PathParam("prodId") int prodId, @PathParam("listaId") int listaId) {
+		List<Precolista> precoLista = null;
+		try {
+			Query q = entityManager.createQuery("Select p From Preco p where p.produto.prodId='"+prodId+"' and p.precolista.precolistaId='"+listaId+"'");
+			//Query q = entityManager.createQuery("Select pl From Precolista pl, IN (pl.precos) as p where pl.precolistaId='"+listaId+"' and p.produto.prodId='"+prodId+"'");
+			precoLista = q.getResultList();
+		}
+		catch(Exception e) {
+			return Response.serverError().build();
+		}
+		if(precoLista == null || precoLista.size() == 0)
+			return Response.status(404).build();
+		return Response.ok(new GenericEntity<List<Precolista>>(precoLista) {}).build();
+	}
+	
+	@GET @Path("/{prodId}/estoque")
+	@Produces({"application/xml", "application/json"})
+	public Response readEstoque(@PathParam("prodId") int prodId) {
+		List<Estoque> estoque = null;
+		try {
+			Query q = entityManager.createQuery("Select e From Estoque e where e.produto.prodId='"+prodId+"'");
+			estoque = q.getResultList();
+		}
+		catch(Exception e) {
+			return Response.serverError().build();
+		}
+		if(estoque == null || estoque.size() == 0)
+			return Response.status(404).build();
+		return Response.ok(new GenericEntity<List<Estoque>>(estoque) {}).build();
 	}
 	
 	@Override

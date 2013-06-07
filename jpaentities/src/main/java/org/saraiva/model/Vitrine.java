@@ -1,10 +1,17 @@
 package org.saraiva.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -83,6 +90,7 @@ public class Vitrine implements Serializable {
 		return categoriatopo;
 	}
 
+	@XmlElement(name="lojas")
 	public List<Lojavitrinerel> getLojavitrinerels() {
 		return this.lojavitrinerels;
 	}

@@ -81,7 +81,7 @@ public class Categoria implements Serializable {
 		this.nome = nome;
 	}
 
-	@XmlInverseReference(mappedBy="categoria1")
+	@XmlElement(name="categoriasfilha")
 	public List<Categoriarel> getCategoriarels() {
 		return this.categoriarels;
 	}
@@ -150,7 +150,7 @@ public class Categoria implements Serializable {
 		return produtocatrel;
 	}
 
-	@XmlElement(name="categoriapai")
+	@XmlElement(name="categoriaspai")
 	public Categoriarel getCategoriarel() {
 		return this.categoriarel;
 	}

@@ -1,8 +1,15 @@
 package org.saraiva.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
 
 
 /**
@@ -32,6 +39,7 @@ public class Categoriatopo implements Serializable {
 	public Categoriatopo() {
 	}
 
+	@XmlTransient
 	public CategoriatopoPK getId() {
 		return this.id;
 	}
@@ -56,6 +64,7 @@ public class Categoriatopo implements Serializable {
 		this.categoria = categoria;
 	}
 
+	@XmlInverseReference(mappedBy="categoriatopos")
 	public Vitrine getVitrine() {
 		return this.vitrine;
 	}

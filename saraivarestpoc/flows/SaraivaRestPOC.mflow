@@ -7,11 +7,11 @@
             <property name="name" value="PostgreSQL_Data_Source"/>
             <property name="loginTimeout"/>
             <property name="transactionIsolation" value="READ_UNCOMMITTED"/>
-            <property name="password" value="admin"/>
             <property name="user" value="postgres"/>
-            <property name="database" value="miniloja"/>
-            <property name="url"/>
+            <property name="password" value="admin"/>
             <property name="auxiliary;index" value="1"/>
+            <property name="url"/>
+            <property name="database" value="miniloja"/>
         </properties>
     </global-element>
     <global-element name="Database" type="http://www.mulesoft.org/schema/mule/ee/jdbc/connector" entity-id="Database#1">
@@ -44,27 +44,27 @@
             <property name="lazy-init"/>
             <property name="auxiliary;wrappedIn" value="beans@spring@http://www.springframework.org/schema/beans"/>
             <property name="id" value="produtoResource"/>
-            <property name="primary"/>
             <property name="name"/>
+            <property name="primary"/>
             <property name="autowire"/>
             <property name="destroy-method"/>
-            <property name="auxiliary;index" value="4"/>
             <property name="auxiliary;wrapIn" value="3"/>
+            <property name="auxiliary;index" value="4"/>
             <property name="depends-on"/>
         </properties>
     </global-element>
-    <flow SubFlow="false" name="SaraivaRestPOCFlow1" entity-id="534670d7-b1da-4458-952f-695eced370bd">
+    <flow SubFlow="false" name="SaraivaRestPOCFlow1" entity-id="2d08c088-b97a-4799-b0bb-560029f85abb">
         <properties>
             <property name="processingStrategy"/>
             <property name="processingStrategy2"/>
             <property name="bussinessEventsLabel"/>
-            <property name="tracking:enable-default-events"/>
             <property name="auxiliary;index" value="5"/>
+            <property name="tracking:enable-default-events"/>
         </properties>
         <lane hadOnlyOneElement="false" index="0" isChoiceOtherwiseLane="false" entity-id="compartment-lane#1">
             <graphicalData x="0" y="0" width="0" height="0"/>
             <endpoint direction="Inbound" message-exchange-pattern="RequestResponse" name="HTTP" type="http://www.mulesoft.org/schema/mule/http/endpoint" entity-id="HTTP#1">
-                <graphicalData x="19" y="126" width="68" height="171"/>
+                <graphicalData x="0" y="0" width="0" height="0"/>
                 <properties>
                     <property name="port" value="8081"/>
                     <property name="host" value="localhost"/>
@@ -78,31 +78,52 @@
                     <property name="exchange-pattern" value="request-response"/>
                     <property name="tracking:enable-default-events"/>
                     <property name="ref"/>
-                    <property name="transformer-refs"/>
                     <property name="httpLabel"/>
+                    <property name="transformer-refs"/>
                     <property name="address"/>
-                    <property name="path" value="servicos"/>
                     <property name="encoding"/>
+                    <property name="path" value="servicos"/>
                     <property name="responseTransformer-refs"/>
                     <property name="method"/>
                     <property name="user"/>
-                    <property name="responseTimeout"/>
-                    <property name="mimeType"/>
                     <property name="auxiliary;index" value="6"/>
+                    <property name="mimeType"/>
+                    <property name="responseTimeout"/>
                     <property name="connector-ref"/>
                 </properties>
             </endpoint>
             <pattern name="REST" type="http://www.mulesoft.org/schema/mule/jersey/resources" entity-id="REST#1">
-                <graphicalData x="147" y="126" width="68" height="171"/>
+                <graphicalData x="0" y="0" width="0" height="0"/>
                 <properties>
+                    <property name="ref" value=""/>
+                    <property name="updated"/>
                     <property name="auxiliary;index" value="7"/>
                     <property-collection name="@http://www.mulesoft.org/schema/mule/core/component;0">
                         <property name="class" value="org.saraiva.resources.ProdutoResource"/>
                         <property name="isProcessed$$$$" value="true"/>
-                        <property name="auxiliary;index" value="8"/>
                         <property name="auxiliary;wrapIn" value="8"/>
+                        <property name="auxiliary;index" value="8"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/core/component;1">
+                        <property name="class" value="org.saraiva.resources.VitrineResource"/>
+                        <property name="isProcessed$$$$" value="true"/>
+                        <property name="auxiliary;wrapIn" value="9"/>
+                        <property name="auxiliary;index" value="9"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/core/component;479085027">
+                        <property name="class" value="org.saraiva.resources.ClienteResource"/>
+                        <property name="isProcessed$$$$" value="true"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/core/component;1682479273">
+                        <property name="class" value="org.saraiva.resources.CategoriaResource"/>
+                        <property name="isProcessed$$$$" value="true"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/core/refInterceptorStackType;1490119995">
+                        <property name="ref" value=""/>
+                        <property name="isProcessed$$$$" value="true"/>
                     </property-collection>
                 </properties>
+                <description></description>
             </pattern>
         </lane>
     </flow>

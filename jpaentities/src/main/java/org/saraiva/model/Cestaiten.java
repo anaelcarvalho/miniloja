@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
 
 /**
  * The persistent class for the cestaitens database table.
@@ -77,6 +79,7 @@ public class Cestaiten implements Serializable {
 		this.quantidade = quantidade;
 	}
 
+	@XmlInverseReference(mappedBy="cestaitens")
 	public Cesta getCesta() {
 		return this.cesta;
 	}
