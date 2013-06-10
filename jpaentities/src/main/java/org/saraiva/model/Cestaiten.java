@@ -25,7 +25,7 @@ public class Cestaiten implements Serializable {
 
 	private double desconto;
 
-	private Integer precototal;
+	private double precototal;
 
 	private Integer quantidade;
 
@@ -63,11 +63,11 @@ public class Cestaiten implements Serializable {
 		this.desconto = desconto;
 	}
 
-	public Integer getPrecototal() {
+	public Double getPrecototal() {
 		return this.precototal;
 	}
 
-	public void setPrecototal(Integer precototal) {
+	public void setPrecototal(Double precototal) {
 		this.precototal = precototal;
 	}
 
